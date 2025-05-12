@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Character from './components/Character/Character'
 import './App.css'
 
-const App = () => {
+function App() {
   const [characters, setCharacters] = useState([])
 
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character')
       .then((res) => res.json())
       .then((data) => setCharacters(data.results))
-      .catch((err) => console.error('Error fetching characters:', err))
   }, [])
 
   return (
